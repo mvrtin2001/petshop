@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title> 
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    {% block css %}
+    {%endblock%}
+    <link rel="stylesheet" href="{% static 'app/css/estilos.css' %}">
+    
+</head>
+<body>
+
+    
+    <header id="header">
+        <img class="menu" src="{% static 'app/img/menuiconwhite.png' %}" alt="menu" id="menu">
+        <div class="contenedor_logo">
+            <img  class="logo"  src="{% static 'app/img/footer/Tienda Patitas(1).png' %}" alt="logo">
+        </div>
+
+        <div>
+            
+            <nav id="nav">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}"> Inicio </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+                    <li><a href="{% url 'galeria' %}">Galería</a></li>
+
+                    <li><a href="{% url 'añadir_producto' %}">Añadir Producto</a></li>
+
+                    <li><a href="{% url 'agrupar_productos' %}">Lista de Productos</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <div id="contenido">
+
+        {%block contenido%}
+        {% endblock%}
+
+
+    </div>
+
+
+    <footer>
+        <div class="marcas">
+            <img src="{% static 'app/img/footer/cachupin.png' %}" alt="">
+            <img src="{% static 'app/img/footer/dogchow.png' %}" alt="">
+            <img src="{% static 'app/img/footer/masterdog.png' %}" alt="">
+            <img src="{% static 'app/img/footer/royalcanin.png' %}" alt="">
+            <img src="{% static 'app/img/footer/LogoChampionDog-01.png' %}" alt="">
+        </div>
+        <div class="logo_footer">
+            <img src="{% static 'app/img/footer/Tienda Patitas(1).png' %}" alt="logo">
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <script src="{% static 'app/js/menu.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+          $('.slider').bxSlider({
+              mode: 'fade',//horizontal, vertical, fade
+              auto: true,
+              pause: 2000
+          });
+        });
+    </script>
+    {% block js %}
+    {% endblock %}
+
+</body>
+</html>
